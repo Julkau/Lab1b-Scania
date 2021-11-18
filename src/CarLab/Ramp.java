@@ -28,4 +28,6 @@ public class Ramp {
     public Car unLoadCar() {
         return null;
     }
+
+    public double getRampAngle() {return rampAngle;}
 }

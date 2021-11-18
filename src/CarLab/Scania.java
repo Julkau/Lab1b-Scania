@@ -4,11 +4,11 @@ import java.awt.*;
 
 public class Scania extends Car {
 
-    private double rampAngle;
+    private Ramp ramp;
 
     public Scania() {
         super();
-        rampAngle = 0;
+        ramp = new Ramp(4,70);
         nrDoors = 2;
         this.color = Color.white;
         enginePower = 100;
@@ -18,7 +18,7 @@ public class Scania extends Car {
 
     @Override
     protected double speedFactor() {
-        if (rampAngle == 0) {
+        if (ramp.getRampAngle() == 0) {
             return enginePower * 0.01;
         }
         else{
