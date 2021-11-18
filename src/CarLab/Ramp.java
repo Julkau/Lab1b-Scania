@@ -14,12 +14,12 @@ public class Ramp {
         this.maxRampAngle = maxRampAngle;
     }
 
-    public void raiseRamp() {
-
+    public double raiseRamp(double amount) {
+        return rampAngle = Math.min(getRampAngle() + amount, maxRampAngle);
     }
 
-    public void lowerRamp() {
-
+    public double lowerRamp(double amount) {
+        return rampAngle = Math.max(getRampAngle() + amount, maxRampAngle);
     }
 
     // TODO: Make sure cars don't add more cars than capacity! How do we make the user understand that max capacity is reached?
