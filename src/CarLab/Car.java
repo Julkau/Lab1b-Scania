@@ -9,18 +9,24 @@ public abstract class Car implements Movable {
     private double y;
     private DIRECTION direction;
     private boolean engineOn;
+    private double currentSpeed;
 
-    protected int nrDoors; // Number of doors on the car
-    protected double currentSpeed;
-    protected double enginePower; // Engine power of the car
-    protected Color color; // Color of the car
-    protected String modelName; // The car model name
+    private int nrDoors; // Number of doors on the car
+    private double enginePower; // Engine power of the car
+    private Color color; // Color of the car
+    private String modelName; // The car model name
 
-    public Car() {
+    public Car(int nrDoors, double enginePower, Color color, String modelName) {
         this.x = 0;
         this.y = 0;
         this.direction = DIRECTION.NORTH;
         this.engineOn = false;
+        this.currentSpeed = 0;
+
+        this.nrDoors = nrDoors;
+        this.enginePower = enginePower;
+        this.color = color;
+        this.modelName = modelName;
     }
     protected abstract double speedFactor();
     // Tested
