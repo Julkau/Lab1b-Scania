@@ -18,7 +18,12 @@ public class Scania extends Car {
 
     @Override
     protected double speedFactor() {
-        return 0;
+        if (rampAngle == 0) {
+            return enginePower * 0.01;
+        }
+        else{
+            return 0;
+        }
     }
 
     public void raiseRamp() {
