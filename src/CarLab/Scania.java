@@ -25,13 +25,4 @@ public class Scania extends Car {
             return 0;
         }
     }
-
-    public void raiseRamp() {
-
-    }
-
-    public void lowerRamp() {
-
-    }
-
 }
