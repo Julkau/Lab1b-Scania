@@ -136,6 +136,8 @@ public class TestCar {
     public void brake_should_not_brake_to_negative_speed() {
         Car saab95 = new Saab95();
         Car volvo = new Volvo240();
+        saab95.startEngine();
+        volvo.startEngine();
         saab95.gas(0.2);
         volvo.gas(0.2);
         saab95.brake(1);
@@ -157,11 +159,5 @@ public class TestCar {
         Car saab95 = new Saab95();
         assertEquals( 0 , saab95.getCoordinate()[0]);
         assertEquals(0, saab95.getCoordinate()[1]);
-    }
-
-    @Test
-    public void scania_should_not_move_when_ramp_is_not_lowered() {
-        Scania scania = new Scania();
-        // TODO: rest.
     }
 }
