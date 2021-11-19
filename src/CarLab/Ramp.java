@@ -2,7 +2,7 @@ package CarLab;
 
 import java.util.Stack;
 
-public class Ramp {
+public class Ramp{
     private final int capacity;
     private final double maxRampAngle;
     private double rampAngle;
@@ -19,7 +19,7 @@ public class Ramp {
     }
 
     public double lowerRamp(double amount) {
-        return rampAngle = Math.max(getRampAngle() + amount, maxRampAngle);
+        return rampAngle = Math.max(getRampAngle() - amount, 0);
     }
 
     public int getNumberOfCars() {
@@ -38,5 +38,11 @@ public class Ramp {
         return cars.pop();
     }
 
-    public double getRampAngle() {return rampAngle;}
+    public double getRampAngle() {
+        return rampAngle;
+    }
+
+    public Stack<Car> getCars() {
+        return cars;
+    }
 }
