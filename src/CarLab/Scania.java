@@ -16,9 +16,16 @@ public class Scania extends Car {
     protected double speedFactor() {
         if (ramp.getRampAngle() == 0) {
             return getEnginePower() * 0.01;
-        }
-        else{
+        } else {
             return 0;
         }
+    }
+
+    public void loadCar(Car car) {
+        ramp.loadCar(car);
+    }
+
+    public Car unLoadCar() {
+        return ramp.unLoadCar();
     }
 }
