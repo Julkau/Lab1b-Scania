@@ -3,10 +3,10 @@ package CarLab;
 import java.util.Stack;
 
 public class Ramp {
-    private int capacity;
+    private final int capacity;
+    private final double maxRampAngle;
     private double rampAngle;
-    private double maxRampAngle;
-    private Stack<Car> cars = new Stack<>();
+    private final Stack<Car> cars = new Stack<>();
 
     public Ramp(int capacity, double maxRampAngle) {
         this.capacity = capacity;
@@ -20,6 +20,10 @@ public class Ramp {
 
     public double lowerRamp(double amount) {
         return rampAngle = Math.max(getRampAngle() + amount, maxRampAngle);
+    }
+
+    public int getNumberOfCars() {
+        return cars.size();
     }
 
     // TODO: Make sure cars don't add more cars than capacity! How do we make the user understand that max capacity is reached?

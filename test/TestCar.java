@@ -1,5 +1,6 @@
 import CarLab.Car;
 import CarLab.Saab95;
+import CarLab.Scania;
 import CarLab.Volvo240;
 import org.junit.jupiter.api.Test;
 
@@ -156,5 +157,11 @@ public class TestCar {
         Car saab95 = new Saab95();
         assertEquals( 0 , saab95.getCoordinate()[0]);
         assertEquals(0, saab95.getCoordinate()[1]);
+    }
+
+    @Test
+    public void scania_should_not_move_when_ramp_is_not_lowered() {
+        Scania scania = new Scania();
+        // TODO: rest.
     }
 }
