@@ -9,7 +9,6 @@ public class Scania extends Car {
     public Scania() {
         super(2,100,Color.white,"CarLab.Scania");
         ramp = new Ramp(4, 70);
-        stopEngine();
     }
 
     @Override
@@ -25,10 +24,13 @@ public class Scania extends Car {
         ramp.loadCar(car);
     }
 
+    // TODO: Must handle the possible exception from the ramp-class (if no car is on ramp).
     public Car unLoadCar() {
         return ramp.unLoadCar();
     }
 
+    // TODO: Should throw exception instead if trying to raise ramp while driving?
+    // TODO: Is this an "effect"-method or a "result"-method? Now it is both (and should most possible not be).
     public double raiseRamp(double amount) {
         if (getCurrentSpeed() == 0) {
             return ramp.raiseRamp(amount);
@@ -37,6 +39,8 @@ public class Scania extends Car {
         }
     }
 
+    // TODO: Should throw exception instead if trying to raise ramp while driving?
+    // TODO: Is this an "effect"-method or a "result"-method? Now it is both (and should most possible not be).
     public double lowerRamp(double amount) {
         if (getCurrentSpeed() == 0) {
             return ramp.lowerRamp(amount);

@@ -27,6 +27,7 @@ public abstract class Car implements Movable {
         this.enginePower = enginePower;
         this.color = color;
         this.modelName = modelName;
+        stopEngine();
     }
     protected abstract double speedFactor();
     // Tested
