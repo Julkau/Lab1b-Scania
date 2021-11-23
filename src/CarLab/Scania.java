@@ -48,4 +48,12 @@ public class Scania extends Car {
             return (0);
         }
     }
+
+    /**
+     * Getter for the attribute rampAngle in the ramp object.
+     * @return the angle of the ramp as double.
+     */
+    public double getRampAngle(){
+        return ramp.getRampAngle();
+    }
 }

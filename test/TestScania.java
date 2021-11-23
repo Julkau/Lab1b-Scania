@@ -19,7 +19,8 @@ public class TestScania {
         Scania scania = new Scania();
         scania.startEngine();
         scania.gas(1);
-        assertEquals( 0 , scania.raiseRamp(10));
+        scania.raiseRamp(10);
+        assertEquals( 0 , scania.getRampAngle());
     }
 
     @Test
