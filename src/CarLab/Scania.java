@@ -25,8 +25,8 @@ public class Scania extends Car {
      * @param car The Car object to be added to the cars stack.
      * @return boolean if the action succeeded and the car could be loaded.
      */
-    public void loadCar(Car car) {
-        ramp.loadCar(car);
+    public boolean loadCar(Car car) {
+        return ramp.loadCar(car);
     }
 
     // TODO: Must handle the possible exception from the ramp-class (if no car is on ramp).

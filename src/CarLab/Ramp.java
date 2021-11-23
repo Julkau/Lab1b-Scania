@@ -47,7 +47,7 @@ public class Ramp{
      * @return boolean if the action succeeded and the car could be loaded.
      */
     public boolean loadCar(Car car) {
-        if (getRampAngle() < maxRampAngle-5 && cars.size() < capacity) {
+        if (getRampAngle() > maxRampAngle-5 && cars.size() < capacity) {
             cars.add(car);
             return true;
         } else
@@ -57,11 +57,11 @@ public class Ramp{
     /**
      * Un load car method removes the car on the top of the cars stack, if the cars stack is empty then an exception is throw.n
      * @return Returns the car at the top of the cars stack if there is one.
-     * @throws NegativeArraySizeException NegativeArraySizeException
+     * @throws ArrayIndexOutOfBoundsException
      */
-    public Car unLoadCar() throws NegativeArraySizeException {
+    public Car unLoadCar() throws ArrayIndexOutOfBoundsException {
         if (cars.size() == 0) {
-            throw new NegativeArraySizeException("There is no cars on the ramp to unload.");
+            throw new ArrayIndexOutOfBoundsException("There is no cars on the ramp to unload.");
         }
         return cars.pop();
     }
