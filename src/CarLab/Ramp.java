@@ -15,7 +15,7 @@ public class Ramp{
     }
 
     /**
-     * Raise ramp increases the angle of the ramp, represented by increasing rampAngle.
+     * Raise ramp increases the angle of the ramp, represented by increasing rampAngle to a max angle of maxRampAngle.
      * @param amount The amount to increase rampAngle by.
      * @return Returns double value from the new ramp value
      */
@@ -24,7 +24,7 @@ public class Ramp{
     }
 
     /**
-     * Lower ramp reduces the angle of the ramp, represented by reducing rampAngle.
+     * Lower ramp reduces the angle of the ramp, represented by reducing rampAngle, to a min angle of 0.
      * @param amount The amount to reduce rampAngle by.
      * @return Returns double value from the new ramp value
      */
@@ -40,18 +40,18 @@ public class Ramp{
         return cars.size();
     }
 
-    // TODO: Make sure cars don't add more cars than capacity! How do we make the user understand that max capacity is reached?
-    // Return bool value with it being true if the car was loaded and false if it was not?
-
     /**
      * Load car method adds a car object to the top of the cars stack if the ramp angle is close or equal
      * to the max ramp angle the and the ramp's capacity.
      * @param car The Car object to be added to the cars stack.
+     * @return boolean if the action succeeded and the car could be loaded.
      */
-    public void loadCar(Car car) {
-        if (getRampAngle() > maxRampAngle-5 && cars.size() < capacity) {
+    public boolean loadCar(Car car) {
+        if (getRampAngle() < maxRampAngle-5 && cars.size() < capacity) {
             cars.add(car);
-        }
+            return true;
+        } else
+            return false;
     }
 
     /**
