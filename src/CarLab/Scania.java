@@ -4,11 +4,11 @@ import java.awt.*;
 
 public class Scania extends Car {
 
-    private final Ramp ramp;
+    private final ScaniaRamp ramp;
 
     public Scania() {
         super(2,100,Color.white,"CarLab.Scania");
-        ramp = new Ramp(4, 70);
+        ramp = new ScaniaRamp(4, 70);
     }
 
     @Override
@@ -36,21 +36,17 @@ public class Scania extends Car {
 
     // TODO: Should throw exception instead if trying to raise ramp while driving?
     // TODO: Is this an "effect"-method or a "result"-method? Now it is both (and should most possible not be).
-    public double raiseRamp(double amount) {
+    public void raiseRamp(double amount) {
         if (getCurrentSpeed() == 0) {
-            return ramp.raiseRamp(amount);
-        }else{
-            return (0);
+            ramp.raiseRamp(amount);
         }
     }
 
     // TODO: Should throw exception instead if trying to raise ramp while driving?
     // TODO: Is this an "effect"-method or a "result"-method? Now it is both (and should most possible not be).
-    public double lowerRamp(double amount) {
+    public void lowerRamp(double amount) {
         if (getCurrentSpeed() == 0) {
-            return ramp.lowerRamp(amount);
-        }else{
-            return (0);
+            ramp.lowerRamp(amount);
         }
     }
 
