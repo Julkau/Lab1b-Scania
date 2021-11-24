@@ -15,7 +15,7 @@ public class TestCarTransport {
         CarTransport carTran = new CarTransport(2,100, Color.white,"Test.CarTransport", 4);
         Saab95 saab95 = new Saab95();
         Volvo240 volvo240 = new Volvo240();
-        carTran.raiseRamp();
+        carTran.lowerRamp();
         carTran.loadCar(saab95);
         carTran.loadCar(volvo240);
         assertEquals(volvo240, carTran.unLoadCar());
@@ -23,7 +23,11 @@ public class TestCarTransport {
     }
 
     @Test
-    public void carTransport_should_raise_ramp() {
+    public void carTransport_should_fail_to_load_car_if_ramp_is_raised() {
+        CarTransport carTran = new CarTransport(2,100, Color.white,"Test.CarTransport", 4);
+        Saab95 saab95 = new Saab95();
+        carTran.raiseRamp();
+        assertFalse(carTran.loadCar(saab95));
 
     }
 }

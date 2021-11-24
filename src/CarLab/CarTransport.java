@@ -11,16 +11,20 @@ public class CarTransport extends Car{
     /**
      * Creates an CarTransport and a new ramp to it.
      * @param doors is the number of car-doors.
-     * @param enginePower is the enginePower.
+     * @param enginePower is the enginePower and therefore the cars max speed.
      * @param color is the cars color.
-     * @param name is
-     * @param rampCapacity
+     * @param name is the name of the car.
+     * @param rampCapacity is the capacity (number of cars) the ramp has (can hold).
      */
     public CarTransport(int doors, double enginePower, Color color, String name, int rampCapacity) {
         super(doors, enginePower, 7.5, color, name);
         this.ramp = new Ramp(rampCapacity);
     }
 
+    /**
+     * Is the factor with which the speed is calculated. Will be zero if the ramp is lowered.
+     * @return a double with the calculated speed-factor.
+     */
     @Override
     protected double speedFactor() {
         if(ramp.isRaised()) {
@@ -71,7 +75,7 @@ public class CarTransport extends Car{
     }
 
     /**
-     * Sets the cars' coordinate to be exactly behind the car-transport.
+     * Sets the cars coordinate to be exactly behind the car-transport.
      * @param car is the car to set the coordinate for.
      */
     private void setUnloadCoordinate(Car car) {
@@ -122,6 +126,11 @@ public class CarTransport extends Car{
         }
     }
 
+    /**
+     * Will also only gas if the ramp is raised.
+     * @param amount is the positive amount [0,1] to accelerate, is multiplied with speedFactor in incrementSpeed.
+     * @throws IllegalArgumentException
+     */
     @Override
     public void gas(double amount) throws IllegalArgumentException {
         if(ramp.isRaised()) {

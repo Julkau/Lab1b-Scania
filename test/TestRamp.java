@@ -1,15 +1,31 @@
 import CarLab.*;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import java.awt.*;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 public class TestRamp {
 
     @Test
-    public void car_size_should_be_at_zero_when_first_created(){
+    public void cars_stack_size_should_be_at_zero_when_first_created(){
         Ramp ramp = new Ramp(70);
         assertEquals(0, ramp.getNumberOfCars());
+    }
+
+    @Test
+    public void ramp_should_lower() {
+        Ramp ramp = new Ramp(4);
+        ramp.lower();
+        ramp.raise();
+        assertTrue(ramp.isRaised());
+    }
+
+    @Test
+    public void ramp_should_raise() {
+        Ramp ramp = new Ramp(4);
+        ramp.lower();
+        assertFalse(ramp.isRaised());
     }
 
     @Test
@@ -36,7 +52,7 @@ public class TestRamp {
     }
 
     @Test
-    public void unloadcars_should_raise_exception_if_unloading_cars_while_stack_is_empty(){
+    public void unloadCars_should_raise_exception_if_unloading_cars_while_stack_is_empty(){
         Ramp ramp = new Ramp(4);
         assertThrows(ArrayIndexOutOfBoundsException.class, ramp::unLoadCar);
 
