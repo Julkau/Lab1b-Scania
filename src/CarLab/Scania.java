@@ -2,13 +2,13 @@ package CarLab;
 
 import java.awt.*;
 
-public class Scania extends Car {
+public class Scania extends Semi {
 
-    private final ScaniaRamp ramp;
+    private final Ramp ramp;
 
     public Scania() {
         super(2,100,Color.white,"CarLab.Scania");
-        ramp = new ScaniaRamp(4, 70);
+        ramp = new Ramp(4, 70);
     }
 
     @Override
@@ -20,22 +20,10 @@ public class Scania extends Car {
         }
     }
 
-    /**
-     * Load car to the ramp object.
-     * @param car The Car object to be added to the cars stack.
-     * @return boolean if the action succeeded and the car could be loaded.
-     */
-    public boolean loadCar(Car car) {
-        return ramp.loadCar(car);
-    }
 
-    // TODO: Must handle the possible exception from the ramp-class (if no car is on ramp).
-    public Car unLoadCar() {
-        return ramp.unLoadCar();
-    }
+
 
     // TODO: Should throw exception instead if trying to raise ramp while driving?
-    // TODO: Is this an "effect"-method or a "result"-method? Now it is both (and should most possible not be).
     public void raiseRamp(double amount) {
         if (getCurrentSpeed() == 0) {
             ramp.raiseRamp(amount);
