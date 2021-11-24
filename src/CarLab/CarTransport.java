@@ -32,11 +32,28 @@ public class CarTransport extends Car{
     }
 
     public boolean loadCar(Car car) {
+        setCarCoordinate(car);
         return ramp.loadCar(car);
     }
 
     public Car unLoadCar() {
         return ramp.unLoadCar();
+    }
+
+    private void setCarCoordinate(Car car) {
+        Double[] coordinate = getCoordinate();
+        double x = coordinate[0];
+        double y = coordinate[1];
+
+        if (getDirection() == DIRECTION.NORTH) {
+            car.setCoordinate(x, y-1);
+        } else if (getDirection() == DIRECTION.EAST) {
+            car.setCoordinate(x-1, y);
+        } else if (getDirection() == DIRECTION.SOUTH) {
+            car.setCoordinate(x, y+1);
+        } else if (getDirection() == DIRECTION.WEST) {
+            car.setCoordinate(x+1, y);
+        }
     }
 
     @Override
@@ -45,5 +62,4 @@ public class CarTransport extends Car{
             super.gas(amount);
         }
     }
-
 }

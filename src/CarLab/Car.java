@@ -60,6 +60,11 @@ public abstract class Car implements Movable {
         return new Double[]{this.x, this.y};
     }
 
+    public void setCoordinate(double x, double y) {
+        this.x = x;
+        this.y = y;
+    }
+
     public DIRECTION getDirection() {
         return direction;
     }
@@ -67,6 +72,7 @@ public abstract class Car implements Movable {
     public void setColor(Color clr) {
         color = clr;
     }
+
 
     public void startEngine() {
         currentSpeed = 0.1;
