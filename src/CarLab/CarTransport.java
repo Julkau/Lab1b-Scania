@@ -3,23 +3,32 @@ package CarLab;
 import java.awt.*;
 
 public class CarTransport extends Car{
-    private Ramp ramp;
+    private final Ramp ramp;
 
     public CarTransport(int doors, double enginePower, Color color, String name) {
         super(doors, enginePower, color, name);
+        this.ramp = new Ramp(4);
     }
 
     @Override
     protected double speedFactor() {
-        return 0;
+        if(ramp.isRaised()) {
+            return getEnginePower() * 0.01;
+        } else {
+            return 0;
+        }
     }
 
     public void raiseRamp() {
-        ramp.raiseRamp();
+        if(getCurrentSpeed() == 0) {
+            ramp.raise();
+        }
     }
 
     public void lowerRamp() {
-        ramp.lowerRamp();
+        if(getCurrentSpeed() == 0) {
+            ramp.lower();
+        }
     }
 
     public boolean loadCar(Car car) {
@@ -28,6 +37,13 @@ public class CarTransport extends Car{
 
     public Car unLoadCar() {
         return ramp.unLoadCar();
+    }
+
+    @Override
+    public void gas(double amount) throws IllegalArgumentException {
+        if(ramp.isRaised()) {
+            super.gas(amount);
+        }
     }
 
 }

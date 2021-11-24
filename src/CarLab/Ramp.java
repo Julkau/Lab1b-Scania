@@ -2,6 +2,7 @@ package CarLab;
 
 import java.util.Stack;
 
+//TODO: Make an interface over this so CarTransport can have several different ramps?
 public class Ramp {
     private final int capacity;
     private final Stack<Car> cars = new Stack<>();
@@ -9,6 +10,7 @@ public class Ramp {
 
     public Ramp(int capacity) {
         this.capacity = capacity;
+        this.raised = true;
     }
 
     /**
@@ -19,12 +21,25 @@ public class Ramp {
         return cars.size();
     }
 
-    public void raiseRamp(){
+    /**
+     * Sets the attribute raised to true.
+     */
+    public void raise(){
         raised = true;
     }
 
-    public void lowerRamp() {
+    /**
+     * Sets the attribute raised to false.
+     */
+    public void lower() {
         raised = false;
+    }
+
+    /**
+     * @return the boolean attribute raised.
+     */
+    public boolean isRaised() {
+        return raised;
     }
 
     /**
@@ -34,7 +49,7 @@ public class Ramp {
      * @return boolean if the action succeeded and the car could be loaded.
      */
     public boolean loadCar(Car car) {
-        if (cars.size() < capacity && raised) {
+        if (cars.size() < capacity && !raised) {
             cars.add(car);
             return true;
         } else { return false; }

@@ -18,17 +18,18 @@ public class Scania extends Car {
             return 0;
         }
     }
+
     // TODO: Should throw exception instead if trying to raise ramp while driving?
     public void raisePlatform(double amount) {
         if (getCurrentSpeed() == 0) {
-            platform.raisePlatform(amount);
+            platform.raise(amount);
         }
     }
 
     // TODO: Should throw exception instead if trying to raise ramp while driving?
     public void lowerPlatform(double amount) {
         if (getCurrentSpeed() == 0) {
-            platform.lowerPlatform(amount);
+            platform.lower(amount);
         }
     }
 
@@ -38,5 +39,12 @@ public class Scania extends Car {
      */
     public double getRampAngle(){
         return platform.getAngle();
+    }
+
+    @Override
+    public void gas(double amount) throws IllegalArgumentException {
+        if(platform.getAngle() == 0) {
+            super.gas(amount);
+        }
     }
 }

@@ -14,7 +14,7 @@ public class Platform {
      * Raise ramp increases the angle of the ramp, represented by increasing rampAngle to a max angle of maxRampAngle.
      * @param amount The amount to increase rampAngle by.
      */
-    public void raisePlatform(double amount) {
+    public void raise(double amount) {
         platformAngle = Math.min(getAngle() + amount, maxRampAngle);
     }
 
@@ -22,7 +22,7 @@ public class Platform {
      * Lower ramp reduces the angle of the ramp, represented by reducing rampAngle, to a min angle of 0.
      * @param amount The amount to reduce rampAngle by.
      */
-    public void lowerPlatform(double amount) {
+    public void lower(double amount) {
         platformAngle = Math.max(getAngle() - amount, 0);
     }
 

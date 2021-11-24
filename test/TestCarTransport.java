@@ -11,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.*;
 public class TestCarTransport {
 
     @Test
-    public void scania_load_and_unload_cars() {
+    public void carTransport_load_and_unload_cars() {
         CarTransport carTran = new CarTransport(2,100, Color.white,"Test.CarTransport");
         Saab95 saab95 = new Saab95();
         Volvo240 volvo240 = new Volvo240();
@@ -20,5 +20,10 @@ public class TestCarTransport {
         carTran.loadCar(volvo240);
         assertEquals(volvo240, carTran.unLoadCar());
         assertEquals(saab95, carTran.unLoadCar());
+    }
+
+    @Test
+    public void carTransport_should_raise_ramp() {
+
     }
 }
