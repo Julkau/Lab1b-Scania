@@ -60,9 +60,9 @@ public abstract class Car implements Movable {
         return new Double[]{this.x, this.y};
     }
 
-    public void setCoordinate(double x, double y) {
-        this.x = x;
-        this.y = y;
+    public void setCoordinate(Double[] coordinate) {
+        this.x = coordinate[0];
+        this.y = coordinate[1];
     }
 
     public DIRECTION getDirection() {
