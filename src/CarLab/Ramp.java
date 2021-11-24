@@ -6,7 +6,9 @@ import java.util.Stack;
 public class Ramp {
     private final int capacity;
     private final Stack<Car> cars = new Stack<>();
+    private final double maxLength = 300;
     private boolean raised;
+
 
     public Ramp(int capacity) {
         this.capacity = capacity;
@@ -49,7 +51,7 @@ public class Ramp {
      * @return boolean if the action succeeded and the car could be loaded.
      */
     public boolean loadCar(Car car) {
-        if (cars.size() < capacity && !raised) {
+        if (cars.size() < capacity && !raised && car.getLength() <= maxLength) {
             cars.add(car);
             return true;
         } else { return false; }

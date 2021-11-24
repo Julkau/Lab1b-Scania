@@ -12,7 +12,7 @@ public class TestCarTransport {
 
     @Test
     public void carTransport_load_and_unload_cars() {
-        CarTransport carTran = new CarTransport(2,100, Color.white,"Test.CarTransport");
+        CarTransport carTran = new CarTransport(2,100, Color.white,"Test.CarTransport", 4);
         Saab95 saab95 = new Saab95();
         Volvo240 volvo240 = new Volvo240();
         carTran.raiseRamp();

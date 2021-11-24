@@ -6,7 +6,7 @@ public class Scania extends Car {
     private final Platform platform;
 
     public Scania() {
-        super(2,100,Color.white,"CarLab.Scania");
+        super(2,100,5, Color.white,"CarLab.Scania");
         platform = new Platform(4);
     }
 

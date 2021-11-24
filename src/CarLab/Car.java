@@ -10,18 +10,20 @@ public abstract class Car implements Movable {
     private DIRECTION direction;
     private boolean engineOn;
     private double currentSpeed;
+    private double length;
 
     private int nrDoors; // Number of doors on the car
     private double enginePower; // Engine power of the car
     private Color color; // Color of the car
     private String modelName; // The car model name
 
-    public Car(int nrDoors, double enginePower, Color color, String modelName) {
+    public Car(int nrDoors, double enginePower, double length, Color color, String modelName) {
         this.x = 0;
         this.y = 0;
         this.direction = DIRECTION.NORTH;
         this.engineOn = false;
         this.currentSpeed = 0;
+        this.length = length;
 
         this.nrDoors = nrDoors;
         this.enginePower = enginePower;
@@ -51,6 +53,10 @@ public abstract class Car implements Movable {
         return engineOn;
     }
 
+    public double getLength(){
+        return length;
+    }
+
     /**
      * Gets the current coordinate in doubles.
      *
@@ -63,6 +69,11 @@ public abstract class Car implements Movable {
     public void setCoordinate(Double[] coordinate) {
         this.x = coordinate[0];
         this.y = coordinate[1];
+    }
+
+    public void setCoordinate(double x, double y) {
+        this.x = x;
+        this.y = y;
     }
 
     public DIRECTION getDirection() {
