@@ -2,9 +2,20 @@ package CarLab;
 
 import java.awt.*;
 
+/**
+ * A CarTransport type for transporting Car-types. Uses a Ramp for the carrying of the Cars.
+ */
 public class CarTransport extends Car{
     private final Ramp ramp;
 
+    /**
+     * Creates an CarTransport and a new ramp to it.
+     * @param doors is the number of car-doors.
+     * @param enginePower is the enginePower.
+     * @param color is the cars color.
+     * @param name is
+     * @param rampCapacity
+     */
     public CarTransport(int doors, double enginePower, Color color, String name, int rampCapacity) {
         super(doors, enginePower, 7.5, color, name);
         this.ramp = new Ramp(rampCapacity);
@@ -19,18 +30,29 @@ public class CarTransport extends Car{
         }
     }
 
+    /**
+     * Raises the ramp if the current speed is zero.
+     */
     public void raiseRamp() {
         if(getCurrentSpeed() == 0) {
             ramp.raise();
         }
     }
 
+    /**
+     * Lowers the ramp if the current speed is zero.
+     */
     public void lowerRamp() {
         if(getCurrentSpeed() == 0) {
             ramp.lower();
         }
     }
 
+    /**
+     * Loads a Car onto the ramp.
+     * @param car is the car to be loaded onto the ramp.
+     * @return boolean if the loading succeeded or not.
+     */
     public boolean loadCar(Car car) {
         if(closeBy(car)) {
             return ramp.loadCar(car);
@@ -38,29 +60,44 @@ public class CarTransport extends Car{
         return false;
     }
 
+    /**
+     * Unloads a car from the ramp (first in, last out).
+     * @return the unloaded car.
+     */
     public Car unLoadCar() {
         Car car = ramp.unLoadCar();
         setUnloadCoordinate(car);
         return car;
     }
 
+    /**
+     * Sets the cars' coordinate to be exactly behind the car-transport.
+     * @param car is the car to set the coordinate for.
+     */
     private void setUnloadCoordinate(Car car) {
         DIRECTION direction = getDirection();
         Double[] coordinate = car.getCoordinate();
         double x = coordinate[0];
         double y = coordinate[1];
 
+        double adjustment = ((getLength()/2)+(car.getLength()/2));
+
         if (direction == DIRECTION.NORTH) {
-            setCoordinate(x,y-1);
+            setCoordinate(x,y-adjustment);
         } else if (direction == DIRECTION.EAST) {
-            setCoordinate(x-1,y);
+            setCoordinate(x-adjustment,y);
         } else if (direction == DIRECTION.SOUTH) {
-            setCoordinate(x,y+1);
+            setCoordinate(x,y+adjustment);
         } else if (direction == DIRECTION.WEST) {
-            setCoordinate(x+1,y);
+            setCoordinate(x+adjustment,y);
         }
     }
 
+    /**
+     * Checks if the car is close by the CarTransport.
+     * @param car is the car to check.
+     * @return a boolean if the car is close by (within 1  + car and truck lengths).
+     */
     private boolean closeBy(Car car) {
         Double[] coordinateCar = car.getCoordinate();
         double carX = coordinateCar[0];
@@ -70,10 +107,11 @@ public class CarTransport extends Car{
         double truckX = coordinate[0];
         double truckY = coordinate[1];
 
-        double distance = Math.sqrt(Math.pow(carX-truckX, 2) + Math.pow(carY-truckY, 2));
-        return distance <= 1;
-    }
+        double adjustment = ((getLength()/2)+(car.getLength()/2)) + 1;
 
+        double distance = Math.sqrt(Math.pow(carX-truckX, 2) + Math.pow(carY-truckY, 2));
+        return distance <= adjustment;
+    }
 
     @Override
     public void move() {

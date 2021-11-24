@@ -1,6 +1,10 @@
 package CarLab;
 
 //TODO: Gör ett inteface "angledRamp" eller dylikt så kan Scanias ramp vara lite mer felxibel.
+
+/**
+ * A platform that can be raised and lowered with an amount within 0 and a maxAngle.
+ */
 public class Platform {
     private final double maxRampAngle;
     private double platformAngle;
@@ -27,8 +31,8 @@ public class Platform {
     }
 
      /**
-     * Getter for the attribute rampAngle
-     * @return Returns double value from rampAngle
+     * Getter for the attribute rampAngle.
+     * @return Returns double value from rampAngle.
      */
     public double getAngle() {
         return platformAngle;
