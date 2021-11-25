@@ -6,8 +6,8 @@ import static org.junit.jupiter.api.Assertions.*;
 public class TestScania {
 
     @Test
-    public void scania_should_not_move_when_ramp_is_raised() {
-        Scania scania = new Scania("abc123");
+    public void scania_should_not_move_when_platform_is_raised() {
+        Scania scania = new Scania("GYU438");
         scania.startEngine();
         scania.brake(1);
         scania.raisePlatform(10);
@@ -16,8 +16,8 @@ public class TestScania {
     }
 
     @Test
-    public void scania_should_not_move_ramp_when_moving() {
-        Scania scania = new Scania("abc123");
+    public void scania_should_not_move_platform_when_moving() {
+        Scania scania = new Scania("GYU438");
         scania.startEngine();
         scania.gas(1);
         scania.raisePlatform(10);

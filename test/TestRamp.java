@@ -34,7 +34,7 @@ public class TestRamp {
 
     @Test
     public void load_cars_to_ramp(){
-        Car volvo240 = new Volvo240("abc123");
+        Car volvo240 = new Volvo240("GYU438");
         Ramp ramp = new Ramp(4);
         ramp.lower();
         ramp.loadCar(volvo240);
@@ -43,8 +43,8 @@ public class TestRamp {
 
     @Test
     public void cars_unloads_in_order(){
-        Car volvo240 = new Volvo240("abc123");
-        Car saab95 = new Saab95("abc123");
+        Car volvo240 = new Volvo240("GYU438");
+        Car saab95 = new Saab95("JZK991");
         Ramp ramp = new Ramp(4);
         ramp.lower();
         ramp.loadCar(volvo240);
