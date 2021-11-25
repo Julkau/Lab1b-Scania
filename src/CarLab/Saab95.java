@@ -12,8 +12,8 @@ public class Saab95 extends Car {
     /**
      * Constructor for Saab95; Inputs number of doors, engine power, length, color and the model name of the car
      */
-    public Saab95() {
-        super(2,125,2.5, Color.red,  "CarLab.Saab95");
+    public Saab95(String licensePlate) {
+        super(2,125,2.5, Color.red,"CarLab.Saab95", licensePlate);
         turboOn = false;
     }
 

@@ -12,8 +12,8 @@ public class Scania extends Car {
      * Constructor for Scania; Inputs number of doors, engine power, length, color and the model name of the car;
      * Creates Platform object and puts reference in platform
      */
-    public Scania() {
-        super(2,100,5, Color.white,"CarLab.Scania", "123abc");
+    public Scania(String licensePlate) {
+        super(2,100,5, Color.white,"CarLab.Scania", licensePlate);
         platform = new Platform(4);
     }
 
