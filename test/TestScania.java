@@ -7,7 +7,7 @@ public class TestScania {
 
     @Test
     public void scania_should_not_move_when_ramp_is_raised() {
-        Scania scania = new Scania();
+        Scania scania = new Scania("abc123");
         scania.startEngine();
         scania.brake(1);
         scania.raisePlatform(10);
@@ -17,7 +17,7 @@ public class TestScania {
 
     @Test
     public void scania_should_not_move_ramp_when_moving() {
-        Scania scania = new Scania();
+        Scania scania = new Scania("abc123");
         scania.startEngine();
         scania.gas(1);
         scania.raisePlatform(10);

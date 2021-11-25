@@ -1,8 +1,6 @@
 import CarLab.*;
 import org.junit.jupiter.api.Test;
 
-import java.awt.*;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 public class TestRamp {
@@ -11,6 +9,12 @@ public class TestRamp {
     public void cars_stack_size_should_be_at_zero_when_first_created(){
         Ramp ramp = new Ramp(70);
         assertEquals(0, ramp.getNumberOfCars());
+    }
+
+    @Test
+    public void ramp_should_be_raised_at_first() {
+        Ramp ramp = new Ramp(4);
+        assertTrue(ramp.isRaised());
     }
 
     @Test
@@ -30,7 +34,7 @@ public class TestRamp {
 
     @Test
     public void load_cars_to_ramp(){
-        Car volvo240 = new Volvo240();
+        Car volvo240 = new Volvo240("abc123");
         Ramp ramp = new Ramp(4);
         ramp.lower();
         ramp.loadCar(volvo240);
@@ -39,8 +43,8 @@ public class TestRamp {
 
     @Test
     public void cars_unloads_in_order(){
-        Car volvo240 = new Volvo240();
-        Car saab95 = new Saab95();
+        Car volvo240 = new Volvo240("abc123");
+        Car saab95 = new Saab95("abc123");
         Ramp ramp = new Ramp(4);
         ramp.lower();
         ramp.loadCar(volvo240);

@@ -9,6 +9,11 @@ public class Platform {
     private final double maxRampAngle;
     private double platformAngle;
 
+    /**
+     * Creates a platform that has an angle.
+     * @param maxRampAngle is the max angle the ramp can have.
+     */
+
     public Platform(double maxRampAngle) {
         this.platformAngle = 0;
         this.maxRampAngle = maxRampAngle;

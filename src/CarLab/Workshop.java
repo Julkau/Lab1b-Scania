@@ -17,16 +17,19 @@ public class Workshop<T extends Car> {
     }
 
     public void storeCar(T car) throws ArrayStoreException{
-        if (getCurrentCapacity() < maxCapacity) {
+        if(currentCapacity < maxCapacity) {
             cars.add(car);
+            currentCapacity++;
+        } else {
+            throw new ArrayStoreException("Can't store car in Workshop, it is full!");
         }
-
     }
 
     public void getCar(T car) {
-        for (int i = 0; i<cars.size(); i++){
+        for (int i = 0; i<currentCapacity; i++){
             if (cars.get(i).getLicensePlate().equals(car.getLicensePlate())){
                 cars.remove(i);
+                currentCapacity--;
                 break;
             }
         }

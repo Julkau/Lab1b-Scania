@@ -6,8 +6,8 @@ import java.awt.*;
 
 public class RunCars {
     public static void main(String[] arg) {
-        Volvo240 volvo = new Volvo240();
-        Saab95 saab = new Saab95();
+        Volvo240 volvo = new Volvo240("abc123");
+        Saab95 saab = new Saab95("abc123");
 
         System.out.println("Cars: " + volvo + " " + saab);
     }
