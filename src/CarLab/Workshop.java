@@ -26,7 +26,7 @@ public class Workshop<T extends Car> {
     }
 
     public void getCar(T car) {
-        for (int i = 0; i<currentCapacity; i++){
+        for (int i = 0; i<maxCapacity - currentCapacity; i++){
             if (cars.get(i).getLicensePlate().equals(car.getLicensePlate())){
                 cars.remove(i);
                 currentCapacity--;
