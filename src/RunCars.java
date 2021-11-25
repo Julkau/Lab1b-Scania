@@ -1,5 +1,6 @@
 import CarLab.Saab95;
 import CarLab.Volvo240;
+import CarLab.Workshop;
 
 import java.awt.*;
 

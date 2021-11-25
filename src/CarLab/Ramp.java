@@ -5,7 +5,7 @@ import java.util.Stack;
 //TODO: Make an interface over this so CarTransport can have several different ramps?
 
 /**
- * A Car-type transporting class. Can be raised and lowered. Will only accept Cars that are up to maxLength i length.
+ * A Car-type transporting class. Can be raised and lowered. Will only accept Cars that are up to maxLength in length.
  * Uses a stack for storing the Cars.
  */
 public class Ramp {
