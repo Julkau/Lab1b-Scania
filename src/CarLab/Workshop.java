@@ -13,10 +13,15 @@ public class Workshop<T extends Car> {
     }
 
     public void storeCar(T car) throws ArrayStoreException{
-        //något
+        cars.add(car);
     }
 
     public void getCar(T car) {
-        //något
+        for (int i = 0; i<cars.size(); i++){
+            if (cars.get(i).getLicensePlate().equals(car.getLicensePlate())){
+                cars.remove(i);
+                break;
+            }
+        }
     }
 }
