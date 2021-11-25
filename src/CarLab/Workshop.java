@@ -12,8 +12,15 @@ public class Workshop<T extends Car> {
         this.maxCapacity = maxCapacity;
     }
 
+    public int getCurrentCapacity() {
+        return currentCapacity;
+    }
+
     public void storeCar(T car) throws ArrayStoreException{
-        cars.add(car);
+        if (getCurrentCapacity() < maxCapacity) {
+            cars.add(car);
+        }
+
     }
 
     public void getCar(T car) {
