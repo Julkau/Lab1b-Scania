@@ -13,7 +13,7 @@ public class Scania extends Car {
      * Creates Platform object and puts reference in platform
      */
     public Scania() {
-        super(2,100,5, Color.white,"CarLab.Scania");
+        super(2,100,5, Color.white,"CarLab.Scania", "123abc");
         platform = new Platform(4);
     }
 

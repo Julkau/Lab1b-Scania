@@ -16,8 +16,8 @@ public class CarTransport extends Car{
      * @param name is the name of the car.
      * @param rampCapacity is the capacity (number of cars) the ramp has (can hold).
      */
-    public CarTransport(int doors, double enginePower, Color color, String name, int rampCapacity) {
-        super(doors, enginePower, 7.5, color, name);
+    public CarTransport(int doors, double enginePower, Color color, String name, String licensePlate, int rampCapacity) {
+        super(doors, enginePower, 7.5, color, name, licensePlate);
         this.ramp = new Ramp(rampCapacity);
     }
 
