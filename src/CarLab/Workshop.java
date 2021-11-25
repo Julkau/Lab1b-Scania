@@ -10,6 +10,7 @@ public class Workshop<T extends Car> {
 
     public Workshop(int maxCapacity) {
         this.maxCapacity = maxCapacity;
+        this.currentCapacity = 0;
     }
 
     public int getCurrentCapacity() {
