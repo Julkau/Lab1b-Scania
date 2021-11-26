@@ -126,6 +126,13 @@ public abstract class Car implements Movable {
     }
 
     /**
+     * Gets the license plate of the car.
+     */
+    public String getLicensePlate() {
+        return licensePlate;
+    }
+
+    /**
      * Sets the colour of a car.
      */
     public void setColor(Color clr) {
