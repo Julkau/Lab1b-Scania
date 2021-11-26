@@ -48,12 +48,12 @@ public class Workshop<T extends Car> {
 
     /**
      * Gets the matching car. Looks for the same licensePlate.
-     * @param car is the matching car to search for.
+     * @param licensePlate is the matching license plate to search for.
      * @throws NoSuchElementException
      */
-    public void getCar(T car) throws NoSuchElementException {
+    public void getCar(String licensePlate) throws NoSuchElementException {
         for (int i = 0; i<maxCapacity - currentCapacity; i++){
-            if (cars.get(i).getLicensePlate().equals(car.getLicensePlate())){
+            if (licensePlate.equals(cars.get(i).getLicensePlate())){
                 cars.remove(i);
                 currentCapacity--;
                 return;
