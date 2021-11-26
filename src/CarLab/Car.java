@@ -18,6 +18,14 @@ public abstract class Car implements Movable {
     private Color color; // Color of the car
     private String modelName; // The car model name
 
+    /**
+     *  Creates a new car.
+     * @param nrDoors, the amount of doors of the car.
+     * @param enginePower, the engine power of the car.
+     * @param color, the colour of the car.
+     * @param modelName, which type of car it is.
+     * @param length, the length of the car.
+     */
     public Car(int nrDoors, double enginePower, double length, Color color, String modelName, String licensePlate) {
         this.x = 0;
         this.y = 0;
@@ -33,34 +41,54 @@ public abstract class Car implements Movable {
         this.modelName = modelName;
         stopEngine();
     }
+
+    /**
+     * Method to get the speed factor of the car.
+     */
     protected abstract double speedFactor();
-    // Tested
+
+    /**
+     * Gets amount of doors on the car.
+     */
     public int getNrDoors() {
         return nrDoors;
     }
-    // Tested
+
+    /**
+     * Gets the engine power of the car.
+     */
     public double getEnginePower() {
         return enginePower;
     }
-    // Tested
+
+    /**
+     * Gets the current speed of the car.
+     */
     public double getCurrentSpeed() {
         return currentSpeed;
     }
-    // Tested
+
+    /**
+     * Gets the colour of the car.
+     */
     public Color getColor() {
         return color;
     }
-    // Tested
+
+    /**
+     * Checks if the engine is on, returns a true or false statement.
+     */
     public boolean getEngineOn() {
         return engineOn;
     }
 
+    /**
+     * Gets the length of the car.
+     * @return a double.
+     */
+
     public double getLength(){
         return length;
-    }
-
-    public String getLicensePlate() {
-        return licensePlate;
     }
 
     /**
@@ -72,30 +100,49 @@ public abstract class Car implements Movable {
         return new Double[]{this.x, this.y};
     }
 
+    /**
+     * Sets the coordinates of the car from the list coordinate.
+     */
     public void setCoordinate(Double[] coordinate) {
         this.x = coordinate[0];
         this.y = coordinate[1];
     }
 
+    /**
+     * Sets the coordinates of the car by two doubles.
+     * @param x, the x coordinate of the car.
+     * @param y, the y coordinate of the car.
+     */
     public void setCoordinate(double x, double y) {
         this.x = x;
         this.y = y;
     }
 
+    /**
+     * Gets the current direction of a car as either NORTH, EAST, SOUTH or WEST.
+     */
     public DIRECTION getDirection() {
         return direction;
     }
 
+    /**
+     * Sets the colour of a car.
+     */
     public void setColor(Color clr) {
         color = clr;
     }
 
-
+    /**
+     * Starts the engine of the car.
+     */
     public void startEngine() {
         currentSpeed = 0.1;
         engineOn = true;
     }
 
+    /**
+     * Stops the engine of a car.
+     */
     public void stopEngine() {
         currentSpeed = 0;
         engineOn = false;
@@ -118,11 +165,19 @@ public abstract class Car implements Movable {
         }
     }
 
+    /**
+     * Switches the direction of the car by using the enum DIRECTION. direction.left moves the index to the
+     * "previous" item in the list directionValues.
+     */
     @Override
     public void turnLeft() {
         direction = direction.left(direction);
     }
 
+    /**
+     * Switches the direction of the car by using the enum DIRECTION. direction.right moves the index to the "next"
+     * item in the list directionValues.
+     */
     @Override
     public void turnRight() {
         direction = direction.right(direction);
