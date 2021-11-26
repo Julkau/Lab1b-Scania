@@ -1,33 +1,47 @@
 import CarLab.Car;
 import CarLab.Saab95;
-import CarLab.Volvo240;
 import CarLab.Workshop;
 import org.junit.jupiter.api.Test;
+
+import java.util.NoSuchElementException;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 public class TestWorkshop {
 
     @Test
-    public void cannot_store_car_if_workshop_is_full(){
-        Workshop workshop = new Workshop(1);
-        Car saab95 = new Saab95("GYU438");
-        Car volvo240 = new Volvo240("JZK991");
-        workshop.storeCar(saab95);
-        workshop.storeCar(volvo240);
-        assertEquals(1, workshop.getCurrentCapacity());
-
+    public void workshop_should_be_empty_when_first_created() {
+        Workshop<Car> workshop = new Workshop<>(10);
+        assertEquals(0, workshop.getCurrentCapacity());
     }
 
     @Test
-    public void receives_the_right_car_when_getting_car_from_workshop(){
-        Workshop workshop = new Workshop(5);
-        Car saab95 = new Saab95("GYU438");
-        Car volvo240 = new Volvo240("JZK991");
+    public void workshop_should_add_a_car() {
+        Workshop<Car> workshop = new Workshop<>(10);
+        Saab95 saab95 = new Saab95("GYU438");
         workshop.storeCar(saab95);
-        workshop.storeCar(volvo240);
-        /** in progress .__. **/
+        assertEquals(1, workshop.getCurrentCapacity());
     }
 
+    @Test
+    public void workshop_should_remove_a_car() {
+        Workshop<Car> workshop = new Workshop<>(10);
+        Saab95 saab95 = new Saab95("GYU438");
+        workshop.storeCar(saab95);
+        workshop.getCar("GYU438");
+        assertEquals(0, workshop.getCurrentCapacity());
+    }
 
+    @Test
+    public void workshop_should_throw_exception_when_at_max_capacity_and_trying_to_add_a_car() {
+        Workshop<Car> workshop = new Workshop<>(0);
+        Saab95 saab95 = new Saab95("GYU438");
+        assertThrows(ArrayStoreException.class, () -> workshop.storeCar(saab95));
+    }
+
+    @Test
+    public void workshop_should_throw_exception_when_trying_to_get_a_car_that_does_not_exist() {
+        Workshop<Car> workshop = new Workshop<>(10);
+        assertThrows(NoSuchElementException.class, () -> workshop.getCar("NoCarLikeThisExist"));
+    }
 }

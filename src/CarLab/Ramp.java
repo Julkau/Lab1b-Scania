@@ -11,16 +11,17 @@ import java.util.Stack;
 public class Ramp {
     private final int capacity;
     private final Stack<Car> cars = new Stack<>();
-    private final double maxLength = 300;
+    private final double maxLength;
     private boolean raised;
 
     /**
      * Creates a Ramp-instance and defines its capacity and sets is raised status to true.
      * @param capacity is the number of cars the ramp can hold.
      */
-    public Ramp(int capacity) {
+    public Ramp(int capacity, double rampLength) {
         this.capacity = capacity;
         this.raised = true;
+        this.maxLength = rampLength/capacity;
     }
 
     /**
@@ -58,11 +59,12 @@ public class Ramp {
      * @param car The Car object to be added to the cars stack.
      * @return boolean if the action succeeded and the car could be loaded.
      */
-    public boolean loadCar(Car car) {
+    public void loadCar(Car car) throws UnsupportedOperationException {
         if (cars.size() < capacity && !raised && car.getLength() <= maxLength) {
             cars.add(car);
-            return true;
-        } else { return false; }
+        } else {
+            throw new UnsupportedOperationException("Problem when loading car to ramp!");
+        }
     }
 
     /**

@@ -36,7 +36,6 @@ public class Workshop<T extends Car> {
      * @param car is the car to be stored.
      * @throws ArrayStoreException
      */
-
     public void storeCar(T car) throws ArrayStoreException{
         if(currentCapacity < maxCapacity) {
             cars.add(car);
@@ -52,7 +51,7 @@ public class Workshop<T extends Car> {
      * @throws NoSuchElementException
      */
     public void getCar(String licensePlate) throws NoSuchElementException {
-        for (int i = 0; i<maxCapacity - currentCapacity; i++){
+        for (int i = 0; i < currentCapacity; i++){
             if (licensePlate.equals(cars.get(i).getLicensePlate())){
                 cars.remove(i);
                 currentCapacity--;

@@ -18,7 +18,7 @@ public class CarTransport extends Car{
      */
     public CarTransport(int doors, double enginePower, Color color, String name, String licensePlate, int rampCapacity) {
         super(doors, enginePower, 7.5, color, name, licensePlate);
-        this.ramp = new Ramp(rampCapacity);
+        this.ramp = new Ramp(rampCapacity, getLength()-1);
     }
 
     /**
@@ -31,6 +31,17 @@ public class CarTransport extends Car{
             return getEnginePower() * 0.01;
         } else {
             return 0;
+        }
+    }
+
+    /**
+     * Starts the engine but removes any speed if ramp is lowered.
+     */
+    @Override
+    public void startEngine() {
+        super.startEngine();
+        if(!ramp.isRaised()) {
+            setCurrentSpeed(0);
         }
     }
 
@@ -57,11 +68,13 @@ public class CarTransport extends Car{
      * @param car is the car to be loaded onto the ramp.
      * @return boolean if the loading succeeded or not.
      */
-    public boolean loadCar(Car car) {
+    public void loadCar(Car car) {
         if(closeBy(car)) {
-            return ramp.loadCar(car);
+            ramp.loadCar(car);
         }
-        return false;
+        else {
+            throw new UnsupportedOperationException("Car is not close by, can't load it!");
+        }
     }
 
     /**

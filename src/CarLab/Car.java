@@ -43,6 +43,14 @@ public abstract class Car implements Movable {
     }
 
     /**
+     * Sets the current speed.
+     * @param currentSpeed is the new speed as a double.
+     */
+    protected void setCurrentSpeed(double currentSpeed) {
+        this.currentSpeed = currentSpeed;
+    }
+
+    /**
      * Method to get the speed factor of the car.
      */
     protected abstract double speedFactor();
