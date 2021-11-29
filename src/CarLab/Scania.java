@@ -59,16 +59,4 @@ public class Scania extends Car {
     public double getRampAngle(){
         return platform.getAngle();
     }
-
-    /**
-     * Method for gassing, does nothing if platform isn't at 0 angle, overrides gas in Car class
-     * @param amount is the positive amount [0,1] to accelerate, is multiplied with speedFactor in incrementSpeed.
-     * @throws IllegalArgumentException Throws illegal argument exception (when???)<-------
-     */
-    @Override
-    public void gas(double amount) throws IllegalArgumentException {
-        if(platform.getAngle() == 0) {
-            super.gas(amount);
-        }
-    }
 }
