@@ -13,7 +13,7 @@ public class TestCarTransport {
 
     @Test
     public void carTransport_load_and_unload_cars() {
-        CarTransport carTran = new CarTransport(2,100, Color.white,"Test.CarTransport", "123abc", 4);
+        CarTransport carTran = new CarTransport(2,100, Color.white,"Test.CarTransport", "123abc", 2);
         Saab95 saab95 = new Saab95("GYU438");
         Volvo240 volvo240 = new Volvo240("JZK991");
         carTran.lowerRamp();
@@ -33,7 +33,7 @@ public class TestCarTransport {
 
     @Test
     public void car_should_move_with_the_carTransport() {
-        CarTransport carTran = new CarTransport(2,100, Color.white,"Test.CarTransport", "123abc", 4);
+        CarTransport carTran = new CarTransport(2,100, Color.white,"Test.CarTransport", "123abc", 2);
         Saab95 saab95 = new Saab95("GYU438");
         carTran.lowerRamp();
         carTran.loadCar(saab95);
