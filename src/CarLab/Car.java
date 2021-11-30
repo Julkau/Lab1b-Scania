@@ -60,6 +60,7 @@ public abstract class Car implements Movable {
 
     /**
      * Method to get the speed factor of the car.
+     * @return the speed factor with which the car should move.
      */
     protected abstract double speedFactor();
 
