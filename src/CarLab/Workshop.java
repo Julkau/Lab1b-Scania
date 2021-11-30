@@ -35,7 +35,7 @@ public class Workshop<T extends Car> {
     }
 
     /**
-     * Stores a Car matching the workshop parameter in the workshop. If max capacity is reached the car will not be
+     * Stores a Car in the workshop. If max capacity is reached the car will not be
      * stored and an exception will be thrown.
      *
      * @param car is the car to be stored.
