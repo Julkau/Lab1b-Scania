@@ -8,6 +8,7 @@ public class Volvo240 extends Car {
 
     /**
      * Constructor of Volvo240, sets the amount of doors, the engine power, the colour and the model name.
+     * @param licensePlate is an id-name
      */
 
     public Volvo240(String licensePlate) {

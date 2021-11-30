@@ -2,7 +2,9 @@ package CarLab;
 
 import java.awt.*;
 
-
+/**
+ * An abstract Car-type class. Used for car-types that should be able to move, accelerate, and have a position.
+ */
 public abstract class Car implements Movable {
 
     private double x;
@@ -25,6 +27,7 @@ public abstract class Car implements Movable {
      * @param color, the colour of the car.
      * @param modelName, which type of car it is.
      * @param length, the length of the car.
+     * @param licensePlate is the id-name for the car. Should be unique.
      */
     public Car(int nrDoors, double enginePower, double length, Color color, String modelName, String licensePlate) {
         this.x = 0;
@@ -56,28 +59,28 @@ public abstract class Car implements Movable {
     protected abstract double speedFactor();
 
     /**
-     * Gets amount of doors on the car.
+     * @return number of doors on the car
      */
     public int getNrDoors() {
         return nrDoors;
     }
 
     /**
-     * Gets the engine power of the car.
+     * @return the engine power of the car.
      */
     public double getEnginePower() {
         return enginePower;
     }
 
     /**
-     * Gets the current speed of the car.
+     * @return the current speed of the car.
      */
     public double getCurrentSpeed() {
         return currentSpeed;
     }
 
     /**
-     * Gets the colour of the car.
+     * @return the colour of the car.
      */
     public Color getColor() {
         return color;
@@ -85,6 +88,7 @@ public abstract class Car implements Movable {
 
     /**
      * Checks if the engine is on, returns a true or false statement.
+     * @return a boolean if engine os on.
      */
     public boolean getEngineOn() {
         return engineOn;
@@ -101,7 +105,6 @@ public abstract class Car implements Movable {
 
     /**
      * Gets the current coordinate in doubles.
-     *
      * @return Integer array of coordinate x and y [-,+].
      */
     public Double[] getCoordinate() {
@@ -110,6 +113,7 @@ public abstract class Car implements Movable {
 
     /**
      * Sets the coordinates of the car from the list coordinate.
+     * @param coordinate is the coordinate to be the new coordinate.
      */
     public void setCoordinate(Double[] coordinate) {
         this.x = coordinate[0];
@@ -128,13 +132,14 @@ public abstract class Car implements Movable {
 
     /**
      * Gets the current direction of a car as either NORTH, EAST, SOUTH or WEST.
+     * @return the cars current direction.
      */
     public DIRECTION getDirection() {
         return direction;
     }
 
     /**
-     * Gets the license plate of the car.
+     * @return the license plate of the car.
      */
     public String getLicensePlate() {
         return licensePlate;
@@ -142,6 +147,7 @@ public abstract class Car implements Movable {
 
     /**
      * Sets the colour of a car.
+     * @param clr is the new Color to give the car.
      */
     public void setColor(Color clr) {
         color = clr;
@@ -250,14 +256,39 @@ public abstract class Car implements Movable {
      * directions (West goes to North, and North goes to West).
      */
     public enum DIRECTION {
-        NORTH, EAST, SOUTH, WEST;
+        /**
+         * Direction north.
+         */
+        NORTH,
+        /**
+         * Direction east.
+         */
+        EAST,
+        /**
+         * Direction south.
+         */
+        SOUTH,
+        /**
+         * Direction west.
+         */
+        WEST;
 
         private static final DIRECTION[] directionValues = values();
 
+        /**
+         * Rotates clockwise.
+         * @param direction is the current direction.
+         * @return new direction.
+         */
         public DIRECTION right(DIRECTION direction) {
             return directionValues[(direction.ordinal() + 1) % directionValues.length];
         }
 
+        /**
+         * Rotates anti_clockwise.
+         * @param direction is the current direction.
+         * @return new direction.
+         */
         public DIRECTION left(DIRECTION direction) {
             if (direction.equals(NORTH)){
                 return WEST;
