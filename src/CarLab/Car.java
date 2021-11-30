@@ -4,6 +4,9 @@ import java.awt.*;
 
 /**
  * An abstract Car-type class. Used for car-types that should be able to move, accelerate, and have a position.
+ * Implements Movable.
+ *
+ * @see Movable
  */
 public abstract class Car implements Movable {
 
@@ -21,12 +24,13 @@ public abstract class Car implements Movable {
     private String modelName; // The car model name
 
     /**
-     *  Creates a new car.
-     * @param nrDoors, the amount of doors of the car.
-     * @param enginePower, the engine power of the car.
-     * @param color, the colour of the car.
-     * @param modelName, which type of car it is.
-     * @param length, the length of the car.
+     * Creates a new car.
+     *
+     * @param nrDoors      the amount of doors of the car.
+     * @param enginePower  the engine power of the car.
+     * @param color        the colour of the car.
+     * @param modelName    which type of car it is.
+     * @param length       the length of the car.
      * @param licensePlate is the id-name for the car. Should be unique.
      */
     public Car(int nrDoors, double enginePower, double length, Color color, String modelName, String licensePlate) {
@@ -47,6 +51,7 @@ public abstract class Car implements Movable {
 
     /**
      * Sets the current speed.
+     *
      * @param currentSpeed is the new speed as a double.
      */
     protected void setCurrentSpeed(double currentSpeed) {
@@ -88,6 +93,7 @@ public abstract class Car implements Movable {
 
     /**
      * Checks if the engine is on, returns a true or false statement.
+     *
      * @return a boolean if engine os on.
      */
     public boolean getEngineOn() {
@@ -96,15 +102,17 @@ public abstract class Car implements Movable {
 
     /**
      * Gets the length of the car.
+     *
      * @return a double.
      */
 
-    public double getLength(){
+    public double getLength() {
         return length;
     }
 
     /**
      * Gets the current coordinate in doubles.
+     *
      * @return Integer array of coordinate x and y [-,+].
      */
     public Double[] getCoordinate() {
@@ -113,6 +121,7 @@ public abstract class Car implements Movable {
 
     /**
      * Sets the coordinates of the car from the list coordinate.
+     *
      * @param coordinate is the coordinate to be the new coordinate.
      */
     public void setCoordinate(Double[] coordinate) {
@@ -122,6 +131,7 @@ public abstract class Car implements Movable {
 
     /**
      * Sets the coordinates of the car by two doubles.
+     *
      * @param x, the x coordinate of the car.
      * @param y, the y coordinate of the car.
      */
@@ -132,6 +142,7 @@ public abstract class Car implements Movable {
 
     /**
      * Gets the current direction of a car as either NORTH, EAST, SOUTH or WEST.
+     *
      * @return the cars current direction.
      */
     public DIRECTION getDirection() {
@@ -147,6 +158,7 @@ public abstract class Car implements Movable {
 
     /**
      * Sets the colour of a car.
+     *
      * @param clr is the new Color to give the car.
      */
     public void setColor(Color clr) {
@@ -210,7 +222,7 @@ public abstract class Car implements Movable {
      *
      * @param amount is the positive amount to increase.
      */
-    protected void incrementSpeed(double amount){
+    protected void incrementSpeed(double amount) {
         currentSpeed = Math.min(getCurrentSpeed() + speedFactor() * amount, enginePower);
     }
 
@@ -219,7 +231,7 @@ public abstract class Car implements Movable {
      *
      * @param amount is the positive amount to decrease.
      */
-    protected void decrementSpeed(double amount){
+    protected void decrementSpeed(double amount) {
         currentSpeed = Math.max(getCurrentSpeed() - speedFactor() * amount, 0);
     }
 
@@ -229,7 +241,7 @@ public abstract class Car implements Movable {
      * @param amount is the positive amount [0,1] to accelerate, is multiplied with speedFactor in incrementSpeed.
      */
     public void gas(double amount) throws IllegalArgumentException {
-        if(1 - amount < 0 || 1 - amount > 1) {
+        if (1 - amount < 0 || 1 - amount > 1) {
             throw new IllegalArgumentException("Gas amount should be within [0,1]");
         }
         if (engineOn) {
@@ -243,10 +255,10 @@ public abstract class Car implements Movable {
      * @param amount is the positive amount [0,1] to decelerate, is multiplied with speedFactor in decrementSpeed.
      */
     public void brake(double amount) throws IllegalArgumentException {
-        if(1 - amount < 0 || 1 - amount > 1) {
+        if (1 - amount < 0 || 1 - amount > 1) {
             throw new IllegalArgumentException("Brake amount should be within [0,1]");
         }
-        if(amount > currentSpeed)
+        if (amount > currentSpeed)
             amount = currentSpeed;
         decrementSpeed(amount);
     }
@@ -277,6 +289,7 @@ public abstract class Car implements Movable {
 
         /**
          * Rotates clockwise.
+         *
          * @param direction is the current direction.
          * @return new direction.
          */
@@ -286,11 +299,12 @@ public abstract class Car implements Movable {
 
         /**
          * Rotates anti_clockwise.
+         *
          * @param direction is the current direction.
          * @return new direction.
          */
         public DIRECTION left(DIRECTION direction) {
-            if (direction.equals(NORTH)){
+            if (direction.equals(NORTH)) {
                 return WEST;
             } else {
                 return directionValues[(direction.ordinal() - 1)];

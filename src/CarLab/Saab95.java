@@ -3,7 +3,7 @@ package CarLab;
 import java.awt.*;
 
 /**
- * Class that represents Scania Trucks; Is a subclass of Car; Has turbo functionality for boosting speed factor
+ * Class that represents Scania Trucks; Is a subclass of Car; Has turbo functionality for boosting speed factor.
  */
 public class Saab95 extends Car {
 
@@ -11,10 +11,11 @@ public class Saab95 extends Car {
 
     /**
      * Constructor for Saab95; Inputs number of doors, engine power, length, color and the model name of the car.
+     *
      * @param licensePlate is an id-name
      */
     public Saab95(String licensePlate) {
-        super(2,125,2.5, Color.red,"CarLab.Saab95", licensePlate);
+        super(2, 125, 2.5, Color.red, "CarLab.Saab95", licensePlate);
         turboOn = false;
     }
 
@@ -34,6 +35,7 @@ public class Saab95 extends Car {
 
     /**
      * Getter for the attribute turboOn
+     *
      * @return turboOn as boolean
      */
     public boolean getTurboOn() {
@@ -42,6 +44,7 @@ public class Saab95 extends Car {
 
     /**
      * Method for getting Saab95's speed factor, used in Car class when gassing
+     *
      * @return Saab95's speed factor
      */
     @Override

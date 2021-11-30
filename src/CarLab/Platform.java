@@ -1,7 +1,5 @@
 package CarLab;
 
-//TODO: Gör ett inteface "angledRamp" eller dylikt så kan Scanias ramp vara lite mer felxibel.
-
 /**
  * A platform that can be raised and lowered with an amount within 0 and a maxAngle.
  */
