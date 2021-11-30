@@ -3,7 +3,9 @@ package CarLab;
 import java.awt.*;
 
 /**
- * A CarTransport type for transporting Car-types. Uses a Ramp for the carrying of the Cars.
+ * A CarTransport type for transporting Car-types. Extends Car. Uses a Ramp for the carrying of the Cars.
+ * @see Car
+ * @see Ramp
  */
 public class CarTransport extends Car {
     private final Ramp ramp;

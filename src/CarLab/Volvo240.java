@@ -3,7 +3,8 @@ package CarLab;
 import java.awt.*;
 
 /**
- * A volvo240 type extending Car-type. Has a trim factor.
+ * Class that represents Volvo240; Extends Car; Has turbo functionality for boosting speed factor. Has a trim factor.
+ * @see Car
  */
 public class Volvo240 extends Car {
 

@@ -3,7 +3,9 @@ package CarLab;
 import java.awt.*;
 
 /**
- * Class that represents Scania Trucks; Is a subclass of Car; Has a platform for loading, transporting and unloading cars
+ * Class that represents Scania Trucks; Is a subclass of Car; Has a platform for loading, transporting and unloading cars.
+ * @see Car
+ * @see Platform
  */
 public class Scania extends Car {
     private final Platform platform;

@@ -3,7 +3,8 @@ package CarLab;
 import java.awt.*;
 
 /**
- * Class that represents Scania Trucks; Is a subclass of Car; Has turbo functionality for boosting speed factor.
+ * Class that represents Saab95; Extends Car; Has turbo functionality for boosting speed factor.
+ * @see Car
  */
 public class Saab95 extends Car {
 
