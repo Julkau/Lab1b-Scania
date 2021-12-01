@@ -63,8 +63,7 @@ public class TestCarTransport {
         CarTransport carTran = new CarTransport(2,100, Color.white,"Test.CarTransport", "123abc", 4);
         carTran.startEngine();
         carTran.gas(1);
-        carTran.lowerRamp();
-        assertEquals(0, carTran.getCurrentSpeed());
+        assertThrows(IllegalStateException.class, () -> carTran.lowerRamp());
     }
 
     @Test
