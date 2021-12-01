@@ -22,12 +22,12 @@ public class Scania extends Car {
     }
 
     /**
-     * Method for getting scania's speed factor, used when gassing
+     * Method for getting scania's speed factor, used when gassing.
      *
      * @return Returns speedfactor for Scania class
      */
     @Override
-    protected double speedFactor() {
+    protected double speedFactor(){
         if (platform.getAngle() == 0) {
             return getEnginePower() * 0.01;
         } else {
@@ -35,29 +35,33 @@ public class Scania extends Car {
         }
     }
 
-    // TODO: Should throw exception instead if trying to raise ramp while driving?
-
     /**
      * Method for raising the platform by a desired amount.
      *
      * @param amount amount The amount of degrees to raise the ramp  by
+     * @throws IllegalStateException if car is moving.
      */
-    public void raisePlatform(double amount) {
+    public void raisePlatform(double amount) throws IllegalStateException{
         if (getCurrentSpeed() == 0) {
             platform.raise(amount);
         }
+        else {
+            throw new IllegalStateException("Can't raise platform when Scania is moving.");
+        }
     }
-
-    // TODO: Should throw exception instead if trying to raise ramp while driving?
 
     /**
      * Method for lowering the platform by a desired amount.
      *
      * @param amount The amount of degrees to lower the ramp  by
+     * @throws IllegalStateException if car is moving.
      */
-    public void lowerPlatform(double amount) {
+    public void lowerPlatform(double amount) throws IllegalStateException{
         if (getCurrentSpeed() == 0) {
             platform.lower(amount);
+        }
+        else {
+            throw new IllegalStateException("Can't lower platform when Scania is moving.");
         }
     }
 

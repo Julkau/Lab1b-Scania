@@ -4,6 +4,7 @@ import java.awt.*;
 
 /**
  * A CarTransport type for transporting Car-types. Extends Car. Uses a Ramp for the carrying of the Cars.
+ *
  * @see Car
  * @see Ramp
  */
@@ -52,19 +53,27 @@ public class CarTransport extends Car {
 
     /**
      * Raises the ramp if the current speed is zero.
+     *
+     * @throws IllegalStateException is car is moving.
      */
-    public void raiseRamp() {
+    public void raiseRamp() throws IllegalStateException {
         if (getCurrentSpeed() == 0) {
             ramp.raise();
+        } else {
+            throw new IllegalStateException("Can't raise ramp if CarTransport is moving.");
         }
     }
 
     /**
      * Lowers the ramp if the current speed is zero.
+     *
+     * @throws IllegalStateException if car is moving.
      */
     public void lowerRamp() {
         if (getCurrentSpeed() == 0) {
             ramp.lower();
+        } else {
+            throw new IllegalStateException("Can't lower ramp if CarTransport is moving.");
         }
     }
 

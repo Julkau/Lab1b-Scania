@@ -59,6 +59,15 @@ public class TestCarTransport {
     }
 
     @Test
+    public void carTransport_ramp_should_not_lower_when_at_a_speed() {
+        CarTransport carTran = new CarTransport(2,100, Color.white,"Test.CarTransport", "123abc", 4);
+        carTran.startEngine();
+        carTran.gas(1);
+        carTran.lowerRamp();
+        assertEquals(0, carTran.getCurrentSpeed());
+    }
+
+    @Test
     public void carTransport_should_throw_exception_when_trying_to_load_itself() {
         CarTransport carTran = new CarTransport(2,100, Color.white,"Test.CarTransport", "123abc", 4);
         carTran.lowerRamp();

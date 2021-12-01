@@ -28,6 +28,4 @@ public class TestPlatform {
         assertEquals(0, platform.getAngle());
 
     }
-
-
 }
