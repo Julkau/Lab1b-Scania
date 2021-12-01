@@ -92,11 +92,6 @@ public class CarTransport extends Car {
         return car;
     }
 
-    /**
-     * Sets the cars coordinate to be exactly behind the car-transport.
-     *
-     * @param car is the car to set the coordinate for.
-     */
     private void setUnloadCoordinate(Car car) {
         DIRECTION direction = getDirection();
         Double[] coordinate = car.getCoordinate();
@@ -116,12 +111,6 @@ public class CarTransport extends Car {
         }
     }
 
-    /**
-     * Checks if the car is close by the CarTransport.
-     *
-     * @param car is the car to check.
-     * @return a boolean if the car is close by (within 1  + car and truck lengths).
-     */
     private boolean closeBy(Car car) {
         Double[] coordinateCar = car.getCoordinate();
         double carX = coordinateCar[0];
