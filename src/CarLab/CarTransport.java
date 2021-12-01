@@ -69,7 +69,7 @@ public class CarTransport extends Car {
      *
      * @throws IllegalStateException if car is moving.
      */
-    public void lowerRamp() {
+    public void lowerRamp() throws IllegalStateException {
         if (getCurrentSpeed() == 0) {
             ramp.lower();
         } else {
