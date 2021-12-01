@@ -42,8 +42,12 @@ public class TestCarTransport {
 
     @Test
     public void car_should_end_up_near_to_the_carTransport_when_unloaded() {
-        CarTransport carTran = new CarTransport(2,100, Color.white,"Test.CarTransport", "123abc", 4);
+        CarTransport carTran = new CarTransport(2,100, Color.white,"Test.CarTransport", "123abc", 2);
         Saab95 saab95 = new Saab95("GYU438");
+        carTran.lowerRamp();
+        carTran.loadCar(saab95);
+        carTran.unLoadCar();
+        assertTrue(saab95.getCoordinate().length < 20);
     }
 
     @Test
@@ -75,6 +79,12 @@ public class TestCarTransport {
     public void carTransport_should_throw_exception_when_trying_to_load_itself() {
         CarTransport carTran = new CarTransport(2,100, Color.white,"Test.CarTransport", "123abc", 4);
         carTran.lowerRamp();
+        assertThrows(UnsupportedOperationException.class, () -> carTran.loadCar(carTran));
+    }
+
+    @Test
+    public void carTransport_cant_load_itself(){
+        CarTransport carTran = new CarTransport(2,100, Color.white,"Test.CarTransport", "123abc", 1);
         assertThrows(UnsupportedOperationException.class, () -> carTran.loadCar(carTran));
     }
 }

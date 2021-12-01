@@ -22,8 +22,8 @@ public class CarTransport extends Car {
      * @param licensePlate is the id-name for the car. Should be unique.
      */
     public CarTransport(int doors, double enginePower, Color color, String name, String licensePlate, int rampCapacity) {
-        super(doors, enginePower, 7.5, color, name, licensePlate);
-        this.ramp = new Ramp(rampCapacity, getLength() - 1);
+        super(doors, enginePower, 8, color, name, licensePlate);
+        this.ramp = new Ramp(rampCapacity, getLength());
     }
 
     /**
