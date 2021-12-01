@@ -1,7 +1,4 @@
-import CarLab.CarTransport;
-import CarLab.Saab95;
-import CarLab.Scania;
-import CarLab.Volvo240;
+import CarLab.*;
 import org.junit.jupiter.api.Test;
 
 import java.awt.*;
@@ -64,6 +61,14 @@ public class TestCarTransport {
         carTran.startEngine();
         carTran.gas(1);
         assertThrows(IllegalStateException.class, () -> carTran.lowerRamp());
+    }
+
+    @Test
+    public void carTransport_should_only_load_cars_that_are_relatively_close(){
+        CarTransport carTran = new CarTransport(2,100, Color.white,"Test.CarTransport", "123abc", 4);
+        Saab95 saab952 = new Saab95("GYI438");
+        saab952.setCoordinate(100,100);
+        assertThrows(UnsupportedOperationException.class, () -> carTran.loadCar(saab952));
     }
 
     @Test

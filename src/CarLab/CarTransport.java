@@ -81,8 +81,9 @@ public class CarTransport extends Car {
      * Loads a Car onto the ramp.
      *
      * @param car is the car to be loaded onto the ramp.
+     * @throws UnsupportedOperationException if car is not nearby.
      */
-    public void loadCar(Car car) {
+    public void loadCar(Car car) throws UnsupportedOperationException{
         if (closeBy(car)) {
             ramp.loadCar(car);
         } else {
